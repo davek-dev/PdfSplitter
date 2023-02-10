@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:PdfSplitter.Controls"
+             x:Class="PdfSplitter.Views.PdfViewPage"             
+             x:Name="pdfExtractorViewPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Controls:PdfPageContent Grid.Row="0" Grid.Column="0" Page="{Binding SelectedPageItem}" SelectPageCommand="{Binding OnItemSelectedCommand}" />
+        <Controls:PdfPages Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Pages="{Binding Items}" SelectedPage="{Binding SelectedPageItem, Mode=TwoWay}" />
+        <Controls:PdfSelectedPages  Grid.Row="1" Grid.Column="0" SelectedPages="{Binding SelectedItems}" RemovePageCommand="{Binding OnItemRemovedCommand}" />
+        <Controls:PdfSaveControl  Grid.Row="1" Grid.Column="0" SaveCommand="{Binding OnSaveFileCommand}" IsVisible="{Binding DisplaySaveButton}" VerticalOptions="End" />
+    </Grid>
+</ContentPage>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PdfSplitter.Controls.PdfPages"
+             x:Name="this">
+    <ScrollView BindingContext="{x:Reference this}">
+        <ListView  ItemsSource="{Binding Pages}" SelectionMode="Single" SelectedItem="{Binding SelectedPage}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10" MaximumWidthRequest="120">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="6*" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Row="0" Grid.Column="0" Margin="0, 5, 0, 0" Source="{Binding Preview}" />
+                            <Label Grid.Row="1"  Grid.Column="0" Text="{Binding PageName}" HorizontalOptions="Center" Margin="0" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
+</ContentView>

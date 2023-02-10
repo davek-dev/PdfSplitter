@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fonts="clr-namespace:PdfSplitter.Fonts"
+             x:Name="this"
+             x:Class="PdfSplitter.Controls.PdfSaveControl">
+    <VerticalStackLayout BindingContext="{x:Reference this}">
+        <Button  
+            x:Name="Save"
+            Margin="5"
+            CornerRadius="10"
+            BackgroundColor="DarkGreen"
+            TextColor="White"
+            FontFamily="Icons" 
+            FontAttributes="Bold"
+            FontSize="20"
+            Text="{x:Static fonts:MaterialDesignRegular.Save}"
+            Command="{Binding SaveCommand}"
+            SemanticProperties.Hint="Save selected pages to new document."
+            HorizontalOptions="End"
+            VerticalOptions="End" />
+    </VerticalStackLayout>
+</ContentView>
