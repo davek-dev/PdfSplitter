@@ -14,7 +14,7 @@ public class PdfService : IPdfService
     public PdfService()
     {
         Items = new ObservableCollection<PdfPageItem>();
-        SelectedItems= new ObservableCollection<PdfPageItem>(); 
+        SelectedItems = new ObservableCollection<PdfPageItem>(); 
     }   
     
     public async Task LoadPdf(string path)

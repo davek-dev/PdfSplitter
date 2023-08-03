@@ -1,9 +1,10 @@
-﻿using System.Linq.Expressions;
+﻿using System.ComponentModel;
+using System.Linq.Expressions;
 using System.Reflection;
 
 namespace PdfSplitter.Models;
 
-public abstract class BindableModelBase : BindableObject
+public abstract class BindableModelBase : BindableObject, INotifyPropertyChanged
 {
     protected void NotifyPropertyChanged<T>(Expression<Func<T>> property)
     {
