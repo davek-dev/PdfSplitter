@@ -29,7 +29,7 @@ jobs:
     - name: Install Certificate
       run: certutil -user -q -p ${{ secrets.PDFSPLITTER_PWD }} -importpfx cert.pfx NoRoot
     - name: Build
-      run: dotnet build PdfSplitter/PdfSplitter.csproj -c Release -f:net7.0-windows10.0.19041.0 /p:GenerateAppxPackageOnBuild=true /p:PackageCertificateThumbprint="${{ secrets.PDFSPLITTER_THUMB }}"    
+      run: dotnet publish PdfSplitter/PdfSplitter.csproj -c Release -f:net7.0-windows10.0.19041.0 /p:GenerateAppxPackageOnBuild=true /p:AppxPackageSigningEnabled=true /p:PackageCertificateThumbprint="${{ secrets.PDFSPLITTER_THUMB }}"    
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.2
       with:  
