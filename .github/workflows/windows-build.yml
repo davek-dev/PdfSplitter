@@ -23,7 +23,7 @@ jobs:
     - name: Install MAUI
       run: dotnet workload install maui
     - name: Decrypt Pfx
-    - run: |
+      run: |
         echo "${{ secrets.PDFSPLITTER_PFX_CERT }}" > cert.pfx.asc
         certutil -decode cert.pfx.asc cert.pfx
     - name: Install Certificate
